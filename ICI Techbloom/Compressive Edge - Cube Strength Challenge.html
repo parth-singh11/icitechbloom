@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ENGGCANVA – Engineering Beyond Paper. Design the optimal rotary intersection.">
+  <title>ENGGCANVA — ICI TechBloom</title>
+  <link rel="icon" href="images/d00b6ac1b5a539c038b40913f4070d01.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── Colours ─── */
+    :root {
+      --teal: #1e4d3f;
+      --teal-dark: #2a3d36;
+      --teal-light: #38554d;
+      --box-border: #4a90e2; 
+    }
+
+    /* ─── NAVIGATION ─── */
+    .nav { position: sticky; top: 0; z-index: 1000; background: var(--teal); display: flex; align-items: center; padding: 0 24px; height: 64px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .nav-brand { display: flex; align-items: center; gap: 10px; margin-right: 32px; flex-shrink: 0; }
+    .nav-college-logos { display: flex; align-items: center; gap: 6px; margin-right: 16px; }
+    .nav-college-logos img { height: 40px; width: 40px; object-fit: contain; }
+    .nav-brand-text { font-family: 'EB Garamond', serif; font-size: 1.35rem; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; flex: 1; list-style: none; }
+    .nav-links a { display: block; padding: 6px 14px; font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.9); border-radius: 4px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .nav-links a.active { color: #fff; font-weight: 600; }
+    .nav-register { background: transparent; border: 1.5px solid rgba(255,255,255,0.6); color: rgba(255,255,255,0.95) !important; border-radius: 4px; }
+    .nav-register:hover { background: rgba(255,255,255,0.15) !important; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a::after { content: ' ▾'; font-size: 0.7rem; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--teal-dark); border-radius: 4px; min-width: 220px; padding: 8px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.3); z-index: 100; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 8px 16px; font-size: 0.82rem; color: rgba(255,255,255,0.85) !important; transition: background 0.15s; }
+    .nav-dropdown-menu a:hover { background: rgba(255,255,255,0.08); color: #fff !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; margin-left: auto; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+    .nav-mobile-menu { display: none; flex-direction: column; background: var(--teal-dark); position: fixed; top: 64px; left: 0; width: 100%; z-index: 999; padding: 12px 0 20px; }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a { padding: 12px 24px; color: rgba(255,255,255,0.9); font-size: 0.9rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-mobile-menu a:hover { background: rgba(255,255,255,0.08); }
+
+    /* ─── HERO ─── */
+    .engg-hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+      padding: 60px 24px;
+    }
+    .engg-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/Compressive Edge - Cube Strength Challenge/de1e5f6886fd53d66072d0b405a9a979.jpg');
+      background-size: cover; background-position: center;
+    }
+    .engg-hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(30, 77, 63, 0.7); /* Telegraph dark green overlay */
+    }
+    .engg-hero-content {
+      position: relative; z-index: 1;
+      border: 3px solid #fff;
+      padding: 50px 40px; max-width: 960px; width: 100%;
+      color: #fff; background: rgba(0,0,0,0.1);
+      backdrop-filter: blur(2px);
+    }
+    .engg-hero h1 {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .engg-hero-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.4rem, 4vw, 3rem);
+      font-weight: 700; margin-bottom: 40px; 
+    }
+    .engg-hero-details {
+      font-size: 1.1rem; font-weight: 600;
+      line-height: 2;
+    }
+    .register-btn-header {
+      display: block; width: 100%; max-width: 960px; margin: 12px auto 0;
+      background: #fff; color: var(--teal);
+      padding: 12px; text-align: center; border: 2px solid var(--teal);
+      font-weight: 500; font-size: 1.05rem; transition: 0.2s;
+    }
+    .register-btn-header:hover { background: #f0f0f0; }
+
+
+    /* ─── SHARED HEADERS ─── */
+    .section-teal-header {
+      background: var(--teal-dark);
+      padding: 24px; text-align: center; color: #fff;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.8rem; font-weight: 500;
+      margin-top: 40px;
+    }
+
+    /* ─── SECTIONS ─── */
+    .engg-section {
+      padding: 40px 24px;
+      background: #fff;
+    }
+    .engg-content {
+      max-width: 1000px; margin: 0 auto;
+      font-size: 0.98rem; color: #333; line-height: 1.7;
+    }
+    
+    h3.teal-heading {
+      color: #1e4d3f; font-family: 'Inter', sans-serif;
+      font-size: 1.15rem; font-weight: 600;
+      margin: 24px 0 12px;
+    }
+    .engg-list {
+      list-style: square; padding-left: 20px; margin-bottom: 24px;
+    }
+    .engg-list li {
+      margin-bottom: 8px;
+    }
+
+    /* ─── FOOTER & BOTTOM BAR ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .engg-hero-content { padding: 30px 20px; border-width: 2px; }
+      .register-btn-header { display: none; }
+    }
+    
+    .register-bottom-bar {
+      background: var(--teal-dark); padding: 20px; text-align: center;
+      max-width: 1000px; margin: 40px auto 60px; border-radius: 4px;
+    }
+    .register-bottom-bar a {
+      display: inline-block; background: transparent; color: #fff;
+      font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px;
+    }
+
+  .register-banner { background: var(--teal); padding: 28px 24px; text-align: center; }
+    .register-banner a { display: inline-block; background: transparent; border: 1.5px solid rgba(255,255,255,0.7); color: #fff; padding: 10px 80px; font-size: 0.95rem; font-weight: 500; border-radius: 2px; letter-spacing: 0.5px; transition: background 0.2s; }
+    .register-banner a:hover { background: rgba(255,255,255,0.12); }
+    /* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.site-footer {
+  background: #fdfdfd;
+  padding: 60px 24px;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-col h3 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo img {
+  max-width: 240px;
+}
+
+/* QR Section */
+.qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 220px;
+}
+
+.qr-item img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+/* Contact */
+.contact-item {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.contact-item strong {
+  color: var(--teal);
+  display: block;
+  font-size: 1.05rem;
+}
+
+.contact-item a {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+/* Map */
+.map-container {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════
+   REGISTRATION BANNERS
+═══════════════════════════════════════ */
+.reg-banner-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 24px;
+  background: #fff;
+}
+
+.reg-banner-col {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.reg-banner-col img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+
+/* ═══════════════════════════════════════
+   TABLES
+═══════════════════════════════════════ */
+.table-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 24px;
+  overflow-x: auto;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ccc;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.custom-table th {
+  font-weight: 600;
+}
+
+/* Header row */
+.table-header-row {
+  background-color: #6da2db;
+  color: #fff;
+}
+
+/* Sub header */
+.table-sub-header {
+  background-color: #f2e3d5;
+  font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════
+   BROCHURE BUTTON
+═══════════════════════════════════════ */
+.brochure-btn-wrap {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.brochure-btn {
+  display: inline-block;
+  background: var(--teal-dark);
+  color: #fff;
+  padding: 14px 60px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.brochure-btn:hover {
+  background: var(--teal);
+}
+</style>
+</head>
+
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav">
+    <div class="nav-brand">
+       <div class="nav-college-logos">
+        <img src="images/8c7574d310200f6d966383b1bebf3b90.jpg" alt="ICI Logo" style="height:100px ; width:150px;" >
+      </div>
+      <span class="nav-brand-text">ICI TechBloom</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">ICI TechBloom</a></li>
+      <li><a href="glimpse.html">Glimpse of ICI TechBloom 25</a></li>
+      <li><a href="About.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="Events.html" class="active">Events</a>
+        <div class="nav-dropdown-menu">
+          <a href="ArchiNova  Designing Tomorrow.html">ArchiNova — Designing Tomorrow</a>
+          <a href="Bhavishya ka Sustainable Nirman - Future-ready.html">Bhavishya ka Sustainable Nirman</a>
+          <a href="Civiligence - ThinkBuildcompete.html">Civiligence — ThinkBuildCompete</a>
+          <a href="Compressive Edge - Cube Strength Challenge.html" class="active" style="color:#fff;">Compressive Edge</a>
+          <a href="ConcreTech  Strength in Every Mix.html">ConcreTech</a>
+          <a href="CreteCraft Concrete Mix Design  Principles.html">CreteCraft</a>
+          <a href="Protecting Research  Innovation through Patents.html">Protecting Research through Patents</a>
+          <a href="ProtoExpo Showcasing Ideas in Action.html">ProtoExpo</a>
+          <a href="StructoBrick - Rise One Block at a Time.html">StructoBrick</a>
+          <a href="VisionVerse Industry Exhibition A Gallery of.html">VisionVerse</a>
+        </div>
+      </li>
+      <li><a href="TechnoScript 2026 TSCEI 2026.html">TechnoScript 2026: (TSCEI 2026)</a></li>
+      <li><a href="Events.html" class="nav-register">Register Now</a></li>
+    </ul>
+
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile-menu" id="mobile-menu">
+    <a href="index.html">ICI TechBloom</a>
+    <a href="glimpse.html">Glimpse of ICI TechBloom 25</a>
+    <a href="About.html">About</a>
+    <a href="Events.html">Events</a>
+    <a href="ArchiNova  Designing Tomorrow.html">&nbsp;&nbsp;— ArchiNova</a>
+    <a href="Bhavishya ka Sustainable Nirman - Future-ready.html">&nbsp;&nbsp;— Bhavishya</a>
+    <a href="Civiligence - ThinkBuildcompete.html">&nbsp;&nbsp;— Civiligence</a>
+    <a href="Compressive Edge - Cube Strength Challenge.html" style="color:#fff;">&nbsp;&nbsp;— Compressive Edge</a>
+    <a href="ConcreTech  Strength in Every Mix.html">&nbsp;&nbsp;— ConcreTech</a>
+    <a href="CreteCraft Concrete Mix Design  Principles.html">&nbsp;&nbsp;— CreteCraft</a>
+    <a href="Protecting Research  Innovation through Patents.html">&nbsp;&nbsp;— Protecting Patents</a>
+    <a href="ProtoExpo Showcasing Ideas in Action.html">&nbsp;&nbsp;— ProtoExpo</a>
+    <a href="StructoBrick - Rise One Block at a Time.html">&nbsp;&nbsp;— StructoBrick</a>
+    <a href="VisionVerse Industry Exhibition A Gallery of.html">&nbsp;&nbsp;— VisionVerse</a>
+    <a href="TechnoScript 2026 TSCEI 2026.html">TechnoScript 2026</a>
+    <a href="Events.html" style="color:#fff;font-weight:600;margin-top:8px;">Register Now</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="engg-hero">
+    <div class="engg-hero-bg"></div>
+    <div class="engg-hero-content">
+      <h1>ENGGCANVA – Engineering<br>Beyond Paper</h1>
+      <div class="engg-hero-details">
+        <br>
+        Time: 10:30 AM to 12:30 PM<br><br>
+        Venue: Lecture Hall - 2007<br><br>
+        For enquiries &amp; assistance:<br><br>
+        Dr. Parveen Kumar [+91-7018106242]
+      </div>
+    </div>
+  </section>
+  <a href="Events.html" class="register-btn-header">Register Now</a>
+
+
+  <!-- ═══ OVERVIEW ═══ -->
+  <div class="section-teal-header" style="margin-top:0;">Overview</div>
+  <section class="engg-section">
+    <div class="engg-content">
+      
+      <h3 class="teal-heading">Objective:</h3>
+      <p>Students are challenged to design the rotary intersection, ensuring improved traffic flow, safety, and efficiency while accommodating the given PCU values and road widths.</p>
+
+      <h3 class="teal-heading">Rules:</h3>
+      <ul class="engg-list">
+        <li>Teams must select and justify an optimal intersection type (Roundabout or Signalized Intersection).</li>
+        <li>Designs must optimize lane width based on the given PCU and road width.</li>
+        <li>Provisions for pedestrian and bicycle safety must be included</li>
+        <li>Proposals should incorporate road safety measures to reduce congestion and accidents.</li>
+        <li>Teams must suggest sustainable and smart traffic management solutions.</li>
+        <li>The final design must comply with IRC &amp; AASHTO guidelines for capacity analysis.</li>
+      </ul>
+      
+    </div>
+  </section>
+
+  <!-- ═══ GUIDELINES ═══ -->
+  <div class="section-teal-header" style="margin-top:0;">Guidelines</div>
+  <section class="engg-section">
+    <div class="engg-content">
+      
+      <h3 class="teal-heading">Teams:</h3>
+      <ul class="engg-list">
+        <li>1 or 2 members per team.</li>
+      </ul>
+
+      <h3 class="teal-heading">Registration process:</h3>
+      <ul class="engg-list">
+        <li>Participants must first pay the registration fee.</li>
+        <li><strong>After payment, participants must complete the <a href="Events.html" style="color:blue; font-style:italic; text-decoration:underline;">ICI TechBloom 25 Registration Form</a> to confirm their participation.</strong></li>
+      </ul>
+
+      <h3 class="teal-heading">Design Considerations:</h3>
+      <ul class="engg-list">
+        <li>Intersection Type: Roundabout vs. Signalized Intersection.</li>
+        <li>Lane Width Optimization: Based on PCU and road width.</li>
+        <li>Pedestrian and Bicycle Safety Features.</li>
+        <li>Road Safety Measures to reduce congestion and accidents.</li>
+        <li>Sustainable &amp; Smart Traffic Management Solutions.</li>
+      </ul>
+
+      <h3 class="teal-heading">Submission Requirements:</h3>
+      <ul class="engg-list">
+        <li>Conceptual design drawings (Freehand).</li>
+        <li>Road safety measures and pedestrian crossing plans.</li>
+        <li>Capacity Analysis (Justification using IRC &amp; AASHTO guidelines).</li>
+        <li>Sustainability Proposals (Green infrastructure, smart traffic systems).</li>
+      </ul>
+
+      <h3 class="teal-heading">Venue Instructions:</h3>
+      <ul class="engg-list">
+        <li>Teams must report 30 minutes before the scheduled time.</li>
+        <li>No entry will be allowed 10 minutes after the start of the event.</li>
+        <li>Use of mobile phones is not allowed during the event.</li>
+      </ul>
+      
+    </div>
+  </section>
+
+  <!-- ═══ EVALUATION AND DISQUALIFICATION ═══ -->
+  <div class="section-teal-header" style="margin-top:0;">Evaluation and Disqualification Criteria</div>
+  <section class="engg-section">
+    <div class="engg-content">
+      
+      <h3 class="teal-heading">Evaluation Criteria:</h3>
+      <ul class="engg-list">
+        <li>Traffic Efficiency Improvement (40%)</li>
+        <li>Road Safety &amp; Pedestrian Measures (20%)</li>
+        <li>Sustainability &amp; Smart Solutions (20%)</li>
+        <li>Innovation &amp; Feasibility (10%)</li>
+        <li>Presentation Quality (10%)</li>
+      </ul>
+
+      <h3 class="teal-heading">Disqualification Criteria:</h3>
+      <ul class="engg-list">
+        <li>Receiving external assistance during the event</li>
+        <li>Late arrival after the briefing</li>
+        <li>Refusing to wear mandatory safety gear</li>
+        <li>Unsafe conduct or disturbing other teams</li>
+      </ul>
+
+      <p style="margin-top: 30px; margin-bottom: 8px;"><strong>Submission Format: PDF + PPT with detailed explanations, images, and calculations.</strong></p>
+      <p><strong>Judging Panel: Experts in Transportation Engineering &amp; Urban Planning.</strong></p>
+
+    </div>
+  </section>
+
+  <!-- ═══ REGISTER BANNER ═══ -->
+  <div class="register-bottom-bar">
+    <a href="Events.html">Register Now</a>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <!-- Logo Column -->
+      <div class="footer-col footer-logo">
+        <img src="images/9abdee4bbc9af86766e4c9c38eb5f608.jpg" alt="ICI TechBloom Logo">
+        <img src="images/Screenshot 2026-03-18 203325.png" alt="special offer for ici members">
+                <img src="images/Screenshot 2026-03-18 203325ssd.png" alt="call for papers">
+
+      </div>
+
+      <!-- QR Codes & Address Column -->
+      <div class="footer-col">
+        <h3>🌐 Social handles:</h3>
+        <div class="qr-grid">
+          <div class="qr-item"><img src="images/6ab68666e16459a73ecfc7f6f2b56aff.jpg" alt="Instagram QR"></div>
+          <div class="qr-item"><img src="images/799e9af623ddff9d2f9f6c8d6e155756.jpg" alt="YouTube QR"></div>
+        </div>
+
+        <h3 style="margin-top: 20px;">📍 Address:</h3>
+        <p style="font-size: 0.95rem; color: #444; line-height: 1.5;">
+          Poornima College of Engineering<br>
+          ISI-6, RIICO Institutional Area,<br>
+          Sitapura, Jaipur, Rajasthan<br>
+          302022
+        </p>
+
+        <h3 style="margin-top: 10px;">💬 WhatsApp:</h3>
+        <div class="qr-item" style="margin-top:4px;"><img src="images/5c7460a29c425172cacdf676220bd4eb.jpg"
+            alt="WhatsApp QR"></div>
+
+        <div class="map-container" style="margin-top: 20px;">
+         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d51813.818868752845!2d75.82494021964804!3d26.770170815100645!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c1c7f8fffffff%3A0x7ee5a5f5b127bb8d!2sPoornima%20College%20of%20Engineering%20-%20PCE%20%7C%20Best%20College%20for%20Engineering%20in%20Jaipur%20%7C%20NAAC%20A%2B%20Accredited!5e0!3m2!1sen!2sin!4v1773848875900!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="footer-col">
+        <h3>📱 Support & Assistance:</h3>
+
+        <div class="contact-item">
+          <strong>Convener</strong>
+          Dr. Ayush Meena<br>
+          Assistant Professor, PCE 📞 +91-9571554444<br>
+          ✉️ <a href="mailto:icitechbloom.pce@poornima.org">icitechbloom.pce@poornima.org</a><br>
+          🌐 <a href="https://icitechbloom.poornima.org" target="_blank">https://icitechbloom.poornima.org</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>Co-Convener</strong>
+          <div style="display: flex; gap: 20px;">
+            <div>
+              Mr. Mohit Kumar Tiwari<br>
+              Assistant Professor, PCE<br>
+              📞 +91-7974150748
+            </div>
+            <div>
+              Mr. Prateek Sharma<br>
+              Assistant Professor, PCE<br>
+              📞 +91-9950267733
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <strong>Student Coordinator</strong>
+          Harshit Garg 📞 +91-9983800124<br>
+          Priyanshu Raj 📞 +91-9117665896
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- ═══ REGISTRATION BANNERS ═══ -->
+  <div class="reg-banner-row">
+    <div class="reg-banner-col">
+      <img src="images/regis.png" alt="Registration Starts Soon">
+    </div>
+    <div class="reg-banner-col">
+      <img src="images/Screenshot 2026-03-18 201351.png" alt="Win Prizes & Gifts worth ₹ 1 Lakh">
+    </div>
+  </div>
+
+  <!-- ═══ REGISTRATION FEES TABLE ═══ -->
+  <div class="table-container">
+    <table class="custom-table">
+      <thead>
+        <tr class="table-header-row" style="background:#fff; color:#333 !important;">
+          <th style="width: 50%;">Event</th>
+          <th style="width: 25%;">ICI Member</th>
+          <th style="width: 25%;">Non-ICI Member</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SkillForge Workshops</td>
+          <td>No Fee</td>
+          <td>No Fee</td>
+        </tr>
+        <tr>
+          <td>ThinkTide Expert Talks</td>
+          <td>No Fee</td>
+          <td>No Fee</td>
+        </tr>
+        <tr>
+          <td>TechnoScript (TSCEI 2026) – Conference Sessions</td>
+          <td>Registration fee: ₹500 per participant.<br>Accepted papers will be published in a UGC CARE journal;
+            selected papers will be published in a Scopus-indexed journal (APC applicable).</td>
+          <td>Registration fee: ₹500 per participant.<br>Accepted papers will be published in a UGC CARE journal;
+            selected papers will be published in a Scopus-indexed journal (APC applicable).</td>
+        </tr>
+        <tr>
+          <td>ProtoExpo - Model Exhibition &amp; Start-up Showcase</td>
+          <td>₹300/Project (Max. 4 members allowed)</td>
+          <td>₹400/Project (Max. 4 members allowed)</td>
+        </tr>
+        <tr class="table-sub-header">
+          <td colspan="3">Engineer's Arena - Technical Competitions</td>
+        </tr>
+        <tr>
+          <td>ArchiNova – Architectural Design Challenge</td>
+          <td>₹100/head (Max. 3 members allowed)</td>
+          <td>₹150/head (Max. 3 members allowed)</td>
+        </tr>
+        <tr>
+          <td>ConcreTech – High Performance Concrete Mix Design</td>
+          <td>₹100/head (Max. 3 members allowed)</td>
+          <td>₹150/head (Max. 3 members allowed)</td>
+        </tr>
+        <tr>
+          <td>StructoBrick – Brick Construction Skills Challenge</td>
+          <td>₹100/head (Max. 3 members allowed)</td>
+          <td>₹150/head (Max. 3 members allowed)</td>
+        </tr>
+        <tr>
+          <td>Quizcrete – Where Knowledge Meets Strength</td>
+          <td>₹100/head (1 member allowed)</td>
+          <td>₹150/head (1 member allowed)</td>
+        </tr>
+        <tr>
+          <td>Enggcanva – Engineering Beyond Paper</td>
+          <td>₹100/head (1 member allowed)</td>
+          <td>₹150/head (1 member allowed)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ BANK DETAILS TABLE ═══ -->
+  <div class="table-container">
+    <table class="custom-table">
+      <tbody>
+        <tr class="table-header-row">
+          <td style="font-weight:700; width: 40%;">Bank Name:</td>
+          <td style="font-weight:700; width: 60%;">HDFC BANK</td>
+        </tr>
+        <tr>
+          <td>Bank Branch Address:</td>
+          <td>F-129, RIICO INDUSTRIAL AREA, SITAPURA, SANGANER, JAIPUR</td>
+        </tr>
+        <tr>
+          <td>Bank Account Holder Name:</td>
+          <td>POORNIMA COLLEGE PART ONE</td>
+        </tr>
+        <tr>
+          <td>Bank Account No. (For NEFT/ RTGS/E-Payment)</td>
+          <td>50200068726990</td>
+        </tr>
+        <tr>
+          <td>Type of Account</td>
+          <td>CURRENT ACCOUNT</td>
+        </tr>
+        <tr>
+          <td>Bank IFSC Code</td>
+          <td>HDFC0003873</td>
+        </tr>
+        <tr>
+          <td>Bank MICR Code</td>
+          <td>302240028</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="brochure-btn-wrap">
+    <a href="https://drive.google.com/file/d/1nQI0rn6oeLYR4KLZJ5Abf_XdiEsnDbUL/view" class="brochure-btn">ICI TechBloom
+      26 Brochure</a>
+  </div>
+
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* ==========================================================
+   UNIVERSAL RESPONSIVE SYSTEM (Antigravity Fluidity)
+   File: responsive.css
+========================================================== */
+
+/* ── Fluid Base Variables ── */
+:root {
+  /* Fluid Spacing */
+  --fluid-space-sm: clamp(8px, 1.5vw, 16px);
+  --fluid-space-md: clamp(16px, 3.5vw, 32px);
+  --fluid-space-lg: clamp(32px, 5vw, 64px);
+  --fluid-space-xl: clamp(48px, 8vw, 96px);
+  
+  /* Fluid Typography */
+  --fluid-font-xs: clamp(0.75rem, 0.5vw + 0.6rem, 0.875rem);
+  --fluid-font-sm: clamp(0.875rem, 0.8vw + 0.5rem, 1rem);
+  --fluid-font-base: clamp(1rem, 1.2vw + 0.5rem, 1.125rem);
+  --fluid-font-lg: clamp(1.15rem, 1.8vw + 0.5rem, 1.5rem);
+  --fluid-font-xl: clamp(1.5rem, 2.5vw + 0.5rem, 2.2rem);
+  --fluid-font-xxl: clamp(2rem, 4vw + 1rem, 3.5rem);
+  --fluid-font-hero: clamp(3rem, 10vw, 8rem);
+}
+
+/* ── Core Restyles ── */
+body {
+  font-size: var(--fluid-font-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+.container {
+  padding-left: var(--fluid-space-md);
+  padding-right: var(--fluid-space-md);
+}
+
+.section {
+  padding-top: var(--fluid-space-xl);
+  padding-bottom: var(--fluid-space-xl);
+}
+
+.section-heading, .theme-header h2, .section-teal-header h2 {
+  font-size: var(--fluid-font-xl);
+}
+
+/* ── Typography Target (Page 1) ── */
+.hero-title .line-ici, 
+.hero-title .line-tech, 
+.hero-title .line-bloom {
+  font-size: var(--fluid-font-hero);
+  line-height: 1.1;
+}
+
+.about-text h2 {
+  font-size: var(--fluid-font-xl);
+}
+
+.about-text p, .theme-content-box p {
+  font-size: var(--fluid-font-base);
+  margin-bottom: var(--fluid-space-md);
+}
+
+/* ── Antigravity Grid Layouts (Decoupled & Fluid) ── */
+
+/* Auto-flow grid replaces rigid flex or basic grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 45vw, 400px), 1fr));
+  gap: var(--fluid-space-lg);
+  align-items: center;
+}
+
+.about-logo-wrap img {
+  width: clamp(180px, 30vw, 300px);
+  max-width: 100%;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(320px, 48vw, 800px), 1fr));
+  gap: var(--fluid-space-lg);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 30vw, 400px), 1fr));
+  gap: var(--fluid-space-lg);
+}
+
+.sponsors-wrap, .assoc-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--fluid-space-lg);
+  padding: var(--fluid-space-lg) var(--fluid-space-md);
+}
+
+.reg-banner-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 40vw, 500px), 1fr));
+  gap: var(--fluid-space-md);
+  justify-content: center;
+}
+
+/* ── Fluid Components ── */
+.sponsor-logo img, .assoc-logos img {
+  width: clamp(100px, 15vw, 200px);
+  height: auto;
+}
+
+.accordion-header {
+  font-size: var(--fluid-font-lg);
+  padding: var(--fluid-space-md) var(--fluid-space-lg);
+}
+
+.accordion-content-inner {
+  font-size: var(--fluid-font-base);
+  padding: var(--fluid-space-md) var(--fluid-space-lg);
+}
+
+.register-banner a, .brochure-btn {
+  padding: clamp(12px, 2vw, 18px) clamp(32px, 6vw, 80px);
+  font-size: var(--fluid-font-lg);
+}
+
+.nav-brand-text {
+  font-size: var(--fluid-font-xl);
+}
+
+.contact-item {
+  font-size: var(--fluid-font-base);
+}
+
+/* Universal fluid table constraints to prevent overflow while preserving data */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: var(--fluid-space-lg) auto;
+  padding: 0 var(--fluid-space-md);
+}
+
+.custom-table th, .custom-table td {
+  padding: clamp(8px, 1.5vw, 16px) clamp(10px, 2vw, 24px);
+  font-size: var(--fluid-font-sm);
+}
+
+/* ── Event & Subpage Layouts ── */
+.event-banner-content {
+  padding: var(--fluid-space-md) var(--fluid-space-xl) !important;
+}
+
+.event-banner-title {
+  font-size: var(--fluid-font-xl) !important;
+}
+
+.event-banner-subtitle {
+  font-size: var(--fluid-font-lg) !important;
+}
+
+/* Make event banners wrap cleanly instead of strictly absolute horizontal positioning */
+@media (max-width: 768px) {
+  .event-banner-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: var(--fluid-space-sm) !important;
+  }
+}
+
+.archinova-hero-content {
+  padding: var(--fluid-space-xl) var(--fluid-space-lg) !important;
+  width: clamp(280px, 90vw, 900px) !important;
+}
+
+.archinova-hero-content h1 {
+  font-size: var(--fluid-font-hero) !important;
+}
+
+.archinova-hero-subtitle {
+  font-size: var(--fluid-font-xxl) !important;
+}
+
+.archinova-hero-details {
+  font-size: var(--fluid-font-lg) !important;
+}
+
+.teal-heading-large {
+  font-size: var(--fluid-font-xxl) !important;
+  margin-bottom: var(--fluid-space-lg) !important;
+}
+
+.archinova-heading {
+  font-size: var(--fluid-font-lg) !important;
+  margin-top: var(--fluid-space-lg) !important;
+}
+
+.guide-section h2 {
+  font-size: var(--fluid-font-xxl) !important;
+  margin-bottom: var(--fluid-space-md) !important;
+}
+
+.guide-section h3 {
+  font-size: var(--fluid-font-xl) !important;
+  margin-top: var(--fluid-space-lg) !important;
+}
+
+/* Fluid Form & Standard Tables */
+.reg-table th, .reg-table td, .bank-table th, .bank-table td {
+  padding: clamp(8px, 1.5vw, 16px) clamp(10px, 2vw, 24px) !important;
+  font-size: var(--fluid-font-sm) !important;
+}
+
+.reg-table-wrap, .bank-table-wrap {
+  width: 100% !important;
+  overflow-x: auto !important;
+  margin: var(--fluid-space-lg) auto !important;
+}
+
