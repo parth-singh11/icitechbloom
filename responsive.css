@@ -24,6 +24,11 @@
 /* ── Core Restyles ── */
 body {
   font-size: var(--fluid-font-base);
+  text-align: justify;
+}
+
+p {
+  text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-heading, .theme-header h2, .section-teal-header h2 {
   font-size: var(--fluid-font-xl);
+  text-align: center; /* Keep headings centered */
 }
 
 /* ── Typography Target (Page 1) ── */
@@ -215,4 +221,64 @@ h1, h2, h3, h4, h5, h6 {
   width: 100% !important;
   overflow-x: auto !important;
   margin: var(--fluid-space-lg) auto !important;
+}
+
+/* ── Gallery & Jaipur Section (Moved from About.html) ── */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--fluid-space-md);
+  margin-top: var(--fluid-space-lg);
+}
+
+.item {
+  flex: 1 1 calc(25% - var(--fluid-space-md)); /* 4 per row */
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+  height: clamp(150px, 20vw, 250px);
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.caption {
+  margin-top: var(--fluid-space-sm);
+  font-size: var(--fluid-font-sm);
+  font-weight: 500;
+  color: var(--teal-dark);
+}
+
+/* ── Small Screen Space Optimization ── */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .theme-section, .dept-section, .section {
+    padding: var(--fluid-space-lg) 0 !important;
+  }
+
+  .theme-content-box {
+    padding: 20px 12px !important;
+    margin-top: -20px !important;
+  }
+
+  .theme-header {
+    padding: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .item {
+    flex: 1 1 calc(50% - var(--fluid-space-md));
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    flex: 1 1 100%;
+  }
 }
