@@ -196,10 +196,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .event-banner-title {
   font-size: var(--fluid-font-xl) !important;
+  text-align: left !important;
 }
 
 .event-banner-subtitle {
   font-size: var(--fluid-font-lg) !important;
+  text-align: left !important;
 }
 
 /* Make event banners wrap cleanly instead of strictly absolute horizontal positioning */
