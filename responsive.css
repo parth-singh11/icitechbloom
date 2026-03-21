@@ -262,8 +262,8 @@ img, picture, video, canvas, svg {
     margin-right: 8px !important;
   }
   .nav-college-logos img {
-    height: 38px !important;
-    width: 38px !important;
+    height: 36px !important;
+    width: auto !important; /* CRITICAL: Prevent rectangular combined logos from getting crushed */
   }
   .nav-brand {
     gap: 8px !important;
