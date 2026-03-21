@@ -15,10 +15,10 @@
   --fluid-font-xs: clamp(0.75rem, 0.5vw + 0.6rem, 0.875rem);
   --fluid-font-sm: clamp(0.875rem, 0.8vw + 0.5rem, 1rem);
   --fluid-font-base: clamp(1rem, 1.2vw + 0.5rem, 1.125rem);
-  --fluid-font-lg: clamp(1.15rem, 1.8vw + 0.5rem, 1.5rem);
-  --fluid-font-xl: clamp(1.5rem, 2.5vw + 0.5rem, 2.2rem);
-  --fluid-font-xxl: clamp(2rem, 4vw + 1rem, 3.5rem);
-  --fluid-font-hero: clamp(3rem, 10vw, 8rem);
+  --fluid-font-lg: clamp(1.2rem, 2vw + 0.5rem, 1.6rem);
+  --fluid-font-xl: clamp(1.8rem, 3.5vw + 0.5rem, 2.8rem);
+  --fluid-font-xxl: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --fluid-font-hero: clamp(3.5rem, 12vw, 10rem);
 }
 
 /* ── Core Restyles ── */
@@ -90,8 +90,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(260px, 30vw, 400px), 1fr));
-  gap: var(--fluid-space-lg);
+  grid-template-columns: 1.1fr 0.9fr 1.25fr;
+  gap: var(--fluid-space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fluid-space-md);
+}
+
+.contact-item-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--fluid-space-md);
+}
+
+.footer-logo-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fluid-space-md);
+}
+
+.footer-logo-row img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 .sponsors-wrap, .assoc-logos {
@@ -282,3 +313,7 @@ h1, h2, h3, h4, h5, h6 {
     flex: 1 1 100%;
   }
 }
+
+
+/* Added for header alignment */
+.nav-links { justify-content: flex-end !important; }

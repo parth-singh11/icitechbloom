@@ -288,19 +288,19 @@
     }
 
     .hero-title .line-ici {
-      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-size: clamp(4.5rem, 11vw, 11rem);
       display: block;
       letter-spacing: 0.25em;
     }
 
     .hero-title .line-tech {
-      font-size: clamp(5rem, 14vw, 14rem);
+      font-size: clamp(6.5rem, 18vw, 18rem);
       display: block;
       letter-spacing: 0.02em;
     }
 
     .hero-title .line-bloom {
-      font-size: clamp(5rem, 14vw, 14rem);
+      font-size: clamp(6.5rem, 18vw, 18rem);
       display: block;
       letter-spacing: 0.02em;
     }
@@ -345,7 +345,7 @@
     .section-heading {
       text-align: center;
       font-family: 'EB Garamond', serif;
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       font-weight: 600;
       margin-bottom: 48px;
       color: #1a1a1a;
@@ -551,7 +551,7 @@
 
     .theme-header h2 {
       font-family: 'EB Garamond', serif;
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       color: var(--white);
       font-weight: 500;
       letter-spacing: 0.5px;
@@ -612,7 +612,7 @@
 
     .section-teal-header h2 {
       font-family: 'EB Garamond', serif;
-      font-size: 1.4rem;
+      font-size: 2.2rem;
       font-weight: 500;
       color: #fff;
       letter-spacing: 0.5px;
@@ -1164,18 +1164,16 @@
 
   <!-- ═══ NAVIGATION ═══ -->
   <nav class="nav">
-    <div class="nav-brand">
+    <a href="index.html" class="nav-brand">
       <!-- ICI TechBloom logo + name -->
       <div class="nav-college-logos">
         <img src="images/8c7574d310200f6d966383b1bebf3b90.jpg" alt="ICI Logo" style="height:100px ; width:150px;">
       </div>
       <span class="nav-brand-text">ICI TechBloom</span>
-    </div>
+    </a>
 
     <ul class="nav-links">
-      <li><a href="index.html" class="active">ICI TechBloom</a></li>
       <li><a href="glimpse.html">Glimpse of ICI TechBloom 25</a></li>
-      <li><a href="About.html">About</a></li>
       <li class="nav-dropdown">
         <a href="Events.html">Events</a>
         <div class="nav-dropdown-menu">
@@ -1202,9 +1200,7 @@
 
   <!-- Mobile Nav -->
   <div class="nav-mobile-menu" id="mobile-menu">
-    <a href="index.html">ICI TechBloom</a>
     <a href="glimpse.html">Glimpse of ICI TechBloom 25</a>
-    <a href="About.html">About</a>
     <a href="Events.html">Events</a>
     <a href="ArchiNova  Designing Tomorrow.html">&nbsp;&nbsp;— ArchiNova</a>
     <a href="Bhavishya ka Sustainable Nirman - Future-ready.html">&nbsp;&nbsp;— Bhavishya</a>
@@ -1452,71 +1448,73 @@
   </section>
   <footer class="site-footer">
     <div class="footer-grid">
-      <!-- Logo Column -->
-      <div class="footer-col footer-logo">
-        <img src="images/9abdee4bbc9af86766e4c9c38eb5f608.jpg" alt="ICI TechBloom Logo">
-        <img src="images/Screenshot 2026-03-18 203325.png" alt="special offer for ici members">
-                <img src="images/Screenshot 2026-03-18 203325ssd.png" alt="call for papers">
-
+      <!-- Column 1: Logo & Banners -->
+      <div class="footer-col footer-logo-row">
+        <img src="images/9abdee4bbc9af86766e4c9c38eb5f608.jpg" alt="ICI TechBloom Logo" style="width: 100%; max-width: 350px;">
+        <img src="images/Screenshot 2026-03-18 203325.png" alt="Special Offer for ICI Members" style="width: 100%; max-width: 350px;">
+        <img src="images/Screenshot 2026-03-18 203325ssd.png" alt="Call for Papers" style="width: 100%; max-width: 350px;">
       </div>
 
-      <!-- QR Codes & Address Column -->
+      <!-- Column 2: Social, Address, WhatsApp -->
       <div class="footer-col">
-        <h3>🌐 Social handles:</h3>
-        <div class="qr-grid">
-          <div class="qr-item"><img src="images/6ab68666e16459a73ecfc7f6f2b56aff.jpg" alt="Instagram QR"></div>
-          <div class="qr-item"><img src="images/799e9af623ddff9d2f9f6c8d6e155756.jpg" alt="YouTube QR"></div>
-        </div>
-
-        <h3 style="margin-top: 20px;">📍 Address:</h3>
-        <p style="font-size: 0.95rem; color: #444; line-height: 1.5;">
-          Poornima College of Engineering<br>
-          ISI-6, RIICO Institutional Area,<br>
-          Sitapura, Jaipur, Rajasthan<br>
-          302022
-        </p>
-
-        <h3 style="margin-top: 10px;">💬 WhatsApp:</h3>
-        <div class="qr-item" style="margin-top:4px;"><img src="images/5c7460a29c425172cacdf676220bd4eb.jpg"
-            alt="WhatsApp QR"></div>
-
-        <div class="map-container" style="margin-top: 20px;">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d51813.818868752845!2d75.82494021964804!3d26.770170815100645!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c1c7f8fffffff%3A0x7ee5a5f5b127bb8d!2sPoornima%20College%20of%20Engineering%20-%20PCE%20%7C%20Best%20College%20for%20Engineering%20in%20Jaipur%20%7C%20NAAC%20A%2B%20Accredited!5e0!3m2!1sen!2sin!4v1773848875900!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-
-      <!-- Contact Column -->
-      <div class="footer-col">
-        <h3>📱 Support & Assistance:</h3>
-
         <div class="contact-item">
-          <strong>Convener</strong>
-          Dr. Ayush Meena<br>
-          Assistant Professor, PCE 📞 +91-9571554444<br>
-          ✉️ <a href="mailto:icitechbloom.pce@poornima.org">icitechbloom.pce@poornima.org</a><br>
-          🌐 <a href="https://icitechbloom.poornima.org" target="_blank">https://icitechbloom.poornima.org</a>
-        </div>
-
-        <div class="contact-item">
-          <strong>Co-Convener</strong>
-          <div style="display: flex; gap: 20px;">
-            <div>
-              Mr. Mohit Kumar Tiwari<br>
-              Assistant Professor, PCE<br>
-              📞 +91-7974150748
-            </div>
-            <div>
-              Mr. Prateek Sharma<br>
-              Assistant Professor, PCE<br>
-              📞 +91-9950267733
-            </div>
+          <h3 style="margin-top: 0;">🌐 Social handles:</h3>
+          <div class="qr-grid">
+            <div class="qr-item"><img src="images/6ab68666e16459a73ecfc7f6f2b56aff.jpg" alt="Instagram QR"></div>
+            <div class="qr-item"><img src="images/799e9af623ddff9d2f9f6c8d6e155756.jpg" alt="YouTube QR"></div>
           </div>
         </div>
 
         <div class="contact-item">
-          <strong>Student Coordinator</strong>
-          Harshit Garg 📞 +91-9983800124<br>
-          Priyanshu Raj 📞 +91-9117665896
+          <h3>📍 Address:</h3>
+          <p style="font-size: 1rem; color: #444; line-height: 1.6;">
+            Poornima College of Engineering<br>
+            ISI-6, RIICO Institutional Area,<br>
+            Sitapura, Jaipur, Rajasthan 302022
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <h3>💬 WhatsApp:</h3>
+          <div class="qr-item"><img src="images/5c7460a29c425172cacdf676220bd4eb.jpg" alt="WhatsApp QR"></div>
+        </div>
+      </div>
+
+      <!-- Column 3: Support & Assistance -->
+      <div class="footer-col">
+        <h3 style="margin-top: 0;">📱 Support & Assistance:</h3>
+
+        <!-- Convener -->
+        <div class="contact-item">
+          <strong>Convener</strong>
+          <p style="font-size: 0.95rem; margin-bottom: 4px;">Dr. Ayush Meena</p>
+          <p style="font-size: 0.9rem; color: #555;">Assistant Professor, PCE 📞 +91-9571554444</p>
+          <p style="font-size: 0.9rem;"><a href="mailto:icitechbloom.pce@poornima.org">✉️ icitechbloom.pce@poornima.org</a></p>
+          <p style="font-size: 0.9rem;"><a href="https://icitechbloom.poornima.org" target="_blank">🌐 https://icitechbloom.poornima.org</a></p>
+        </div>
+
+        <!-- Co-Convener Grid -->
+        <div class="contact-item">
+          <strong style="display: block; margin-bottom: 8px;">Co-Convener</strong>
+          <div class="contact-item-grid">
+            <div>
+              <p style="font-size: 0.95rem; margin-bottom: 4px;">Mr. Mohit Kumar Tiwari</p>
+              <p style="font-size: 0.85rem; color: #555;">Assistant Professor, PCE</p>
+              <p style="font-size: 0.85rem;">📞 +91-7974150748</p>
+            </div>
+            <div>
+              <p style="font-size: 0.95rem; margin-bottom: 4px;">Mr. Prateek Sharma</p>
+              <p style="font-size: 0.85rem; color: #555;">Assistant Professor, PCE</p>
+              <p style="font-size: 0.85rem;">📞 +91-9950267733</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Coordinator -->
+        <div class="contact-item">
+          <strong style="display: block; margin-bottom: 8px;">Student Coordinator</strong>
+          <p style="font-size: 0.95rem;">Harshit Garg 📞 +91-9983800124</p>
+          <p style="font-size: 0.95rem;">Priyanshu Raj 📞 +91-9117665896</p>
         </div>
       </div>
     </div>
