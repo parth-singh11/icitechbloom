@@ -50,6 +50,25 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center; /* Keep headings centered */
 }
 
+/* Universal box-sizing reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bulletproof mobile horizontal constraints */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Global protection against horizontal overflow from large media */
+img, picture, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ── Typography Target (Page 1) ── */
 .hero-title .line-ici, 
 .hero-title .line-tech, 
@@ -106,6 +125,12 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--fluid-space-md);
+}
+
+@media (max-width: 480px) {
+  .contact-item-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer-logo-row {
