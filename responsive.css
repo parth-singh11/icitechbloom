@@ -249,9 +249,30 @@ img, picture, video, canvas, svg {
   padding-left: var(--fluid-space-xl) !important;
   padding-right: var(--fluid-space-xl) !important;
 }
-
 .event-dropdown a:hover {
   padding-left: calc(var(--fluid-space-xl) + 12px) !important;
+}
+
+/* Scale down navigation header elements exclusively on small mobile screens to keep the hamburger menu visible */
+@media (max-width: 600px) {
+  .nav {
+    padding: 0 16px !important;
+  }
+  .nav-college-logos {
+    margin-right: 8px !important;
+  }
+  .nav-college-logos img {
+    height: 38px !important;
+    width: 38px !important;
+  }
+  .nav-brand {
+    gap: 8px !important;
+    margin-right: auto !important; /* Removes the fixed 32px dead space */
+  }
+  .nav-brand-text {
+    font-size: 1.3rem !important;
+    letter-spacing: 0.3px !important;
+  }
 }
 
 /* Fix unstructured Organizing Committee columns on small screens */
