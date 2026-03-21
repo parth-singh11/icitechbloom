@@ -125,6 +125,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Prevent text justify from stretching names/numbers in the footer */
+.site-footer p, 
+.site-footer div, 
+.contact-item {
+  text-align: left !important;
+}
+
 .sponsors-wrap, .assoc-logos {
   display: flex;
   flex-wrap: wrap;
@@ -197,6 +204,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Make event banners wrap cleanly instead of strictly absolute horizontal positioning */
 @media (max-width: 768px) {
+  .event-banner {
+    height: auto !important;
+    min-height: 140px !important;
+    padding: var(--fluid-space-md) 0 !important;
+  }
   .event-banner-content {
     flex-direction: column !important;
     align-items: flex-start !important;
