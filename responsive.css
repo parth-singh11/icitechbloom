@@ -205,6 +205,23 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Ensure dropdowns align with fluid banner padding */
+.event-dropdown a {
+  padding-left: var(--fluid-space-xl) !important;
+  padding-right: var(--fluid-space-xl) !important;
+}
+
+.event-dropdown a:hover {
+  padding-left: calc(var(--fluid-space-xl) + 12px) !important;
+}
+
+/* Fix unstructured Organizing Committee columns on small screens */
+@media (max-width: 600px) {
+  .accordion-content-inner[style*="columns: 2;"] {
+    columns: 1 !important;
+  }
+}
+
 .archinova-hero-content {
   padding: var(--fluid-space-xl) var(--fluid-space-lg) !important;
   width: clamp(280px, 90vw, 900px) !important;

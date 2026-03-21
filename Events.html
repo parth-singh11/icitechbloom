@@ -94,6 +94,8 @@
     .event-banner-content {
       position: relative; z-index: 1;
       padding: 0 48px;
+      max-width: 1100px; 
+      margin: 0 auto;
       display: flex; align-items: baseline; gap: 16px;
       width: 100%;
     }
@@ -114,6 +116,89 @@
       font-size: 1.4rem; transition: transform 0.3s;
     }
     .event-banner:hover .event-banner-arrow { transform: translateX(4px); }
+
+    /* ─── EVENT DROPDOWNS ─── */
+    .event-group {
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .event-group .event-banner {
+      border-bottom: none;
+    }
+    .event-dropdown {
+      max-height: 0;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(18,48,36,0.98) 0%, rgba(11,28,21,0.98) 100%);
+      box-shadow: inset 0 8px 20px -8px rgba(0,0,0,0.7);
+      transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .event-dropdown-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-group.open .event-dropdown {
+      max-height: 800px;
+    }
+    .event-dropdown a {
+      display: block;
+      padding: 24px 48px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.3s ease, padding-left 0.3s ease;
+      position: relative;
+    }
+    .event-dropdown a:last-child {
+      border-bottom: none;
+    }
+    .event-dropdown a:hover {
+      background: rgba(255,255,255,0.03);
+      padding-left: 60px;
+    }
+    .event-dropdown a::before {
+      content: '';
+      position: absolute;
+      left: 36px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 2px;
+      background: #e5b869;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    .event-dropdown a:hover::before {
+      width: 14px;
+      left: 36px;
+    }
+    .dropdown-item-title {
+      display: block;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #e5b869; /* Gold accent */
+      margin-bottom: 6px;
+      letter-spacing: 0.4px;
+    }
+    .dropdown-item-desc {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .event-group.open .event-banner-arrow {
+      transform: rotate(-90deg) !important;
+    }
+    @media (max-width: 768px) {
+      .event-dropdown a {
+        padding: 24px 24px;
+      }
+      .event-dropdown a:hover { padding-left: 32px; }
+      .event-dropdown a::before { left: 16px; }
+      .event-dropdown a:hover::before { width: 8px; left: 16px; }
+      .dropdown-item-title { font-size: 1.3rem; margin-bottom: 4px; }
+      .dropdown-item-desc { font-size: 0.9rem; line-height: 1.5; }
+    }
 
     /* Specific background tints per event */
     .ev-visionverse .event-banner-bg { background-image: url('images/Events/f034337b9b0afc1ee01688eb2a5aeb91.jpg' )}
@@ -446,25 +531,49 @@
     </div>
   </a>
 
-  <a href="#skillforge" class="event-banner ev-skillforge">
-    <div class="event-banner-bg"></div>
-    <div class="event-banner-overlay"></div>
-    <div class="event-banner-content">
-      <span class="event-banner-title">SkillForge Series Workshop</span>
-      <span class="event-banner-subtitle">Minds on sessions to shape your tomorrow</span>
-      <span class="event-banner-arrow" style="font-size:1.2rem; transform:rotate(90deg);">˅</span>
+  <div class="event-group">
+    <div class="event-banner ev-skillforge" onclick="this.parentElement.classList.toggle('open')">
+      <div class="event-banner-bg"></div>
+      <div class="event-banner-overlay"></div>
+      <div class="event-banner-content">
+        <span class="event-banner-title">SkillForge Series Workshop</span>
+        <span class="event-banner-subtitle">Minds on sessions to shape your tomorrow</span>
+        <span class="event-banner-arrow" style="font-size:1.4rem; transform:rotate(90deg); margin-left:auto; color: rgba(255,255,255,0.7); transition: transform 0.3s;">›</span>
+      </div>
     </div>
-  </a>
+    <div class="event-dropdown">
+      <div class="event-dropdown-inner">
+        <a href="CreteCraft Concrete Mix Design  Principles.html">
+          <span class="dropdown-item-title">CreteCraft</span>
+          <span class="dropdown-item-desc">Concrete Mix Design – Principles, Practices, and Applications of Different Types of Concrete</span>
+        </a>
+        <a href="Protecting Research  Innovation through Patents.html">
+          <span class="dropdown-item-title">Protecting Research &amp; Innovation</span>
+          <span class="dropdown-item-desc">through Patents and Industrial Designs</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <a href="#thinktide" class="event-banner ev-thinktide">
-    <div class="event-banner-bg"></div>
-    <div class="event-banner-overlay"></div>
-    <div class="event-banner-content">
-      <span class="event-banner-title">ThinkTide Expert Talks</span>
-      <span class="event-banner-subtitle">Riding the waves of knowledge &amp; wellness</span>
-      <span class="event-banner-arrow">›</span>
+  <div class="event-group">
+    <div class="event-banner ev-thinktide" onclick="this.parentElement.classList.toggle('open')">
+      <div class="event-banner-bg"></div>
+      <div class="event-banner-overlay"></div>
+      <div class="event-banner-content">
+        <span class="event-banner-title">ThinkTide Expert Talks</span>
+        <span class="event-banner-subtitle">Riding the waves of knowledge &amp; wellness</span>
+        <span class="event-banner-arrow" style="font-size:1.4rem; transform:rotate(90deg); margin-left:auto; color: rgba(255,255,255,0.7); transition: transform 0.3s;">›</span>
+      </div>
     </div>
-  </a>
+    <div class="event-dropdown">
+      <div class="event-dropdown-inner">
+        <a href="Bhavishya ka Sustainable Nirman - Future-ready.html">
+          <span class="dropdown-item-title">Bhavishya ka Sustainable Nirman</span>
+          <span class="dropdown-item-desc">Future-ready infrastructure with a focus on sustainability and climate resilience</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <a href="TechnoScript 2026 TSCEI 2026.html" class="event-banner ev-technoscript" style="height:160px;">
     <div class="event-banner-bg"></div>
@@ -485,15 +594,41 @@
     </div>
   </a>
 
-  <a href="#arena" class="event-banner ev-arena">
-    <div class="event-banner-bg"></div>
-    <div class="event-banner-overlay"></div>
-    <div class="event-banner-content">
-      <span class="event-banner-title">Engineer's Arena</span>
-      <span class="event-banner-subtitle">A battlefield of brilliance, design, and innovation</span>
-      <span class="event-banner-arrow">›</span>
+  <div class="event-group">
+    <div class="event-banner ev-arena" onclick="this.parentElement.classList.toggle('open')">
+      <div class="event-banner-bg"></div>
+      <div class="event-banner-overlay"></div>
+      <div class="event-banner-content">
+        <span class="event-banner-title">Engineer's Arena</span>
+        <span class="event-banner-subtitle">A battlefield of brilliance, design, and innovation</span>
+        <span class="event-banner-arrow" style="font-size:1.4rem; transform:rotate(90deg); margin-left:auto; color: rgba(255,255,255,0.7); transition: transform 0.3s;">›</span>
+      </div>
     </div>
-  </a>
+    <div class="event-dropdown">
+      <div class="event-dropdown-inner">
+        <a href="Civiligence - ThinkBuildcompete.html">
+          <span class="dropdown-item-title">Civiligence</span>
+          <span class="dropdown-item-desc">Technical Quiz</span>
+        </a>
+        <a href="ArchiNova  Designing Tomorrow.html">
+          <span class="dropdown-item-title">ArchiNova</span>
+          <span class="dropdown-item-desc">Designing Tomorrow</span>
+        </a>
+        <a href="javascript:void(0);">
+          <span class="dropdown-item-title">Synergy Greenscape</span>
+          <span class="dropdown-item-desc">Poster display</span>
+        </a>
+        <a href="ConcreTech  Strength in Every Mix.html">
+          <span class="dropdown-item-title">ConcreTech</span>
+          <span class="dropdown-item-desc">Strength in Every Mix</span>
+        </a>
+        <a href="StructoBrick - Rise One Block at a Time.html">
+          <span class="dropdown-item-title">StructoBrick</span>
+          <span class="dropdown-item-desc">Rise One Block at a Time</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══ REGISTRATION FEE TABLE ═══ -->
   <div class="reg-section" id="arena">
