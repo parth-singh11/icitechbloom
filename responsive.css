@@ -288,11 +288,11 @@ img, picture, video, canvas, svg {
 }
 
 .archinova-hero-content h1 {
-  font-size: var(--fluid-font-hero) !important;
+  font-size: clamp(2rem, 6vw, 3.8rem) !important;
 }
 
 .archinova-hero-subtitle {
-  font-size: var(--fluid-font-xxl) !important;
+  font-size: clamp(1.4rem, 3.5vw, 2.5rem) !important;
 }
 
 .archinova-hero-details {

@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ProtoExpo – Showcasing Ideas in Action. Smart, Resilient & Inclusive Engineering: Designing Solutions for the Next Generation.">
-  <title>ProtoExpo Showcase — ICI TechBloom</title>
+  <meta name="description" content="SkillForge Series Workshop - NDT and BIM">
+  <title>SkillForge Series Workshop — ICI TechBloom</title>
   <link rel="icon" href="images/d00b6ac1b5a539c038b40913f4070d01.jpg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ─── Reset ─── */
@@ -22,9 +22,10 @@
     /* ─── Colours ─── */
     :root {
       --teal: #1e4d3f;
-      --teal-dark: #2a3d36;
-      --teal-light: #38554d;
-      --box-border: #4a90e2; 
+      --teal-dark: #163a30;
+      --teal-light: #2a473e;
+      --white: #ffffff;
+      --archinova-teal: #137878;
     }
 
     /* ─── NAVIGATION ─── */
@@ -32,7 +33,7 @@
     .nav-brand { display: flex; align-items: center; gap: 10px; margin-right: 32px; flex-shrink: 0; }
     .nav-college-logos { display: flex; align-items: center; gap: 6px; margin-right: 16px; }
     .nav-college-logos img { height: 40px; width: 40px; object-fit: contain; }
-    .nav-brand-text { font-family: 'EB Garamond', serif; font-size: 1.35rem; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+    .nav-brand-text { font-family: 'EB Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--white); letter-spacing: 0.3px; }
     .nav-links { display: flex; align-items: center; gap: 4px; flex: 1; list-style: none; }
     .nav-links a { display: block; padding: 6px 14px; font-size: 0.83rem; font-weight: 500; color: rgba(255,255,255,0.9); border-radius: 4px; transition: background 0.2s, color 0.2s; white-space: nowrap; }
     .nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
@@ -53,141 +54,130 @@
     .nav-mobile-menu a:hover { background: rgba(255,255,255,0.08); }
 
     /* ─── HERO ─── */
-    .pe-hero {
+    .cc-hero {
       position: relative;
       min-height: calc(100vh - 64px);
       display: flex; align-items: center; justify-content: center;
       text-align: center; overflow: hidden;
       padding: 60px 24px;
     }
-    .pe-hero-bg {
+    .cc-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('images/ProtoExpo Showcasing Ideas in Action/08df3e980c92d5eb72a9e6f6fc484b7b.jpg');
+      background-image: url('images/ArchiNova  Designing Tomorrow/0800f0381bec4dd27ca274d5461a5386.jpg');
       background-size: cover; background-position: center;
     }
-    .pe-hero-bg::after {
+    .cc-hero-bg::after {
       content: ''; position: absolute; inset: 0;
-      background: rgba(30, 80, 70, 0.6); /* Teal green tint */
+      background: rgba(255, 255, 255, 0.4); /* Light overlay for ArchiNova */
     }
-    .pe-hero-content {
+    .archinova-hero-content {
       position: relative; z-index: 1;
-      border: 3px solid rgba(255,255,255,0.9);
-      padding: 40px; max-width: 900px; width: 100%;
-      color: #fff; background: rgba(0,0,0,0.1);
-      backdrop-filter: blur(2px);
+      border:     3px solid var(--teal-dark);
+      padding:     50px 40px; max-width: 1000px; width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    .pe-hero h1 {
+    .archinova-hero-content h1 {
       font-family: 'EB Garamond', serif;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
       text-transform: uppercase;
-      text-transform: uppercase;
-      text-transform: uppercase;
-      font-weight: 700; line-height: 1.15;
-      margin-bottom: 24px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      font-weight: 700; color: var(--teal-dark);
+      line-height: 1.1; margin-bottom: 16px;
     }
-    .pe-hero-subtitle {
+    .archinova-hero-subtitle {
       font-family: 'EB Garamond', serif;
       font-size: clamp(1.4rem, 3.5vw, 2.5rem);
       text-transform: uppercase;
-      text-transform: uppercase;
-      text-transform: uppercase;
-      font-weight: 600; margin-bottom: 40px;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+      font-weight: 600; color: var(--teal-dark);
+      margin-bottom: 30px;
     }
-    .pe-hero-details {
+    .archinova-hero-details {
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem; font-weight: 600;
-      line-height: 2;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      color: var(--teal-dark); line-height: 2;
     }
     .register-btn-header {
-      display: block; width: 100%; max-width: 900px; margin: 12px auto 0;
-      background: #fff; color: var(--teal);
-      padding: 12px; text-align: center; border: 2px solid var(--teal);
+      display: block; width: 100%; max-width: 900px; margin: 12px auto 60px;
+      background: #fff; color: var(--teal-light);
+      padding: 12px; text-align: center; border: 1.5px solid var(--teal-light);
       font-weight: 500; font-size: 1.05rem; transition: 0.2s;
     }
-    .register-btn-header:hover { background: #f0f0f0; }
+    .register-btn-header:hover { background: #f9f9f9; }
 
-    /* ─── NEON BANNER ─── */
-    .neon-banner {
-      background: #000; padding: 40px 24px; text-align: center;
-    }
-    .neon-banner img {
-      max-width: 700px; width: 100%; margin: 0 auto;
-    }
-
-    /* ─── SHARED HEADERS ─── */
+    /* ─── SHARED LAYOUT ─── */
     .section-teal-header {
-      background: var(--teal-dark);
+      background: var(--teal-light);
       padding: 24px; text-align: center; color: #fff;
       font-family: 'EB Garamond', serif;
-      font-size: 2.4rem; font-weight: 500;
-      margin-top: 40px;
+      font-size: 1.8rem; font-weight: 500;
     }
 
-    /* ─── SECTIONS ─── */
-    .pe-section {
-      padding: 40px 24px;
+    /* ─── ABOUT / LISTS SECTION ─── */
+    .cc-section {
+      padding: 60px 24px;
       background: #fff;
     }
-    .pe-content {
-      max-width: 1000px; margin: 0 auto;
-      font-size: 0.98rem; color: #333; line-height: 1.7;
+    .cc-content {
+      max-width: 960px; margin: 0 auto;
+      font-size: 0.98rem; color: #1a1a1a; line-height: 1.6;
     }
-    .overview-box {
-      border: 1.5px solid var(--box-border);
-      padding: 30px; background: #fff; margin-bottom: 24px;
+    .teal-heading-large {
+      color: var(--archinova-teal);
+      font-family: 'EB Garamond', serif;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 30px;
     }
-    .overview-box > p, .pe-content > p { margin-bottom: 16px; }
-    
-    h3.teal-heading {
-      color: #006666; font-family: 'Inter', sans-serif;
-      font-size: 1.8rem; font-weight: 700;
-      margin: 24px 0 12px;
+    .archinova-heading {
+      color: var(--archinova-teal);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-top: 28px;
+      margin-bottom: 4px;
     }
-    .pe-list {
-      list-style: square; padding-left: 20px; margin-bottom: 24px;
+    .archinova-heading:first-child {
+      margin-top: 0;
     }
-    .pe-list li {
+    .cc-content p {
       margin-bottom: 8px;
     }
-
-    /* ─── GUIDELINES TABLE ─── */
-    .criteria-table {
-      width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    .cc-list {
+      list-style-type: square; padding-left: 18px; margin-bottom: 24px; margin-top: 6px;
     }
-    .criteria-table th, .criteria-table td {
-      border: 1px solid #ddd; padding: 12px 16px; text-align: left;
+    .cc-list li {
+      margin-bottom: 8px;
+      color: #1a1a1a;
     }
-    .criteria-table thead tr { background: #fdfdfd; }
-    .criteria-table th { font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #ccc; }
-    .criteria-table tbody tr:last-child { font-weight: 700; background: #fdfdfd; }
 
-    /* ─── FOOTER & BOTTOM BAR ─── */
+    /* ─── BUTTONS ─── */
+    .action-btn-container {
+      max-width: 960px; margin: 0 auto; padding: 20px 24px 80px 24px;
+    }
+    .dashed-divider {
+      border-top: 1px dashed rgba(0,0,0,0.2);
+    }
+    .archinova-btn {
+      display: block; width: 100%;
+      background: var(--teal-light); color: white;
+      text-align: center; padding: 14px; margin: 24px 0;
+      font-size: 1.1rem; border-radius: 4px;
+      transition: background 0.2s; font-weight: 500;
+    }
+    .archinova-btn:hover { background: var(--teal); }
+
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .pe-hero-content { padding: 30px 20px; border-width: 2px; }
-      .register-btn-header { display: none; }
+      .archinova-hero-content { padding:     50px 40px; border-width: 2px; }
+      .register-btn-header { max-width: calc(100% - 48px); margin-bottom: 40px; }
     }
-    
-    .register-bottom-bar {
-      background: var(--teal-dark); padding: 20px; text-align: center;
-      max-width: 1000px; margin: 40px auto 60px; border-radius: 4px;
-    }
-    .register-bottom-bar a {
-      display: inline-block; background: transparent; color: #fff;
-      font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px;
-    }
- /* ─── FOOTER & BOTTOM BAR ─── */
-    .register-bottom-bar {
-      background: var(--teal-light); padding: 20px; text-align: center;
-    }
-    .register-bottom-bar a {
-      display: inline-block; background: transparent; color: #fff;
-      font-weight: 500; font-size: 1.1rem; letter-spacing: 0.5px;
-    }
+
+    /* ─── FOOTER ─── */
+   
+    /* ─── FOOTER ─── */
     .register-banner { background: var(--teal); padding: 28px 24px; text-align: center; }
     .register-banner a { display: inline-block; background: transparent; border: 1.5px solid rgba(255,255,255,0.7); color: #fff; padding: 10px 80px; font-size: 0.95rem; font-weight: 500; border-radius: 2px; letter-spacing: 0.5px; transition: background 0.2s; }
     .register-banner a:hover { background: rgba(255,255,255,0.12); }
@@ -419,195 +409,47 @@
   </div>
 
   <!-- ═══ HERO ═══ -->
-  <section class="pe-hero">
-    <div class="pe-hero-bg"></div>
-    <div class="pe-hero-content">
-      <h1>ProtoExpo</h1>
-      <div class="pe-hero-subtitle">Showcasing Ideas in Action</div>
-      <div class="pe-hero-details">
-        Time: 09:00 AM to 12:30 PM<br><br>
-        Venue: Campus Atrium<br><br>
-        For enquiries &amp; assistance:<br><br>
-        Faculty Coordinator: Mr. Mohit Kumar Tiwari<br>Student Coordinator: Santoshi Prajapat</div>
-    </div>
-  </section>
+  <section class="cc-hero">
+    <div class="cc-hero-bg"></div>
+    <div class="archinova-hero-content">
+  <h1>SkillForge Series Workshop</h1>
+  <div class="archinova-hero-subtitle">Minds on sessions to shape your tomorrow</div>
+  <div class="archinova-hero-details">
+    Time: 08:30 AM to 10:30 AM<br><br>
+    Venue: Assigned Lab Areas<br><br>
+    For enquiries &amp; assistance:<br><br>
+    Non-Destructive Testing (NDT):<br>Faculty Coordinator: Dr. Santanu Malik<br>Student Coordinator: Shanvi (I Year)<br><br>Smart Construction using BIM:<br>Faculty Coordinators: Dr. Ayush Meena, Mr. Mohit Kumar Tiwari, and Dr. Siddharth<br>Student Coordinators: Yashashvi, Vanshika Shrimal, & Param</div>
+</div>
+</section>
   <a href="Events.html" class="register-btn-header">Register Now</a>
 
-  <!-- ═══ NEON BANNER ═══ -->
-  <div class="neon-banner">
-    <!-- Using the generic neon banner from patents folder -->
-    <img src="images/Protecting Research  Innovation through Patents/a284b12b9a926450106b513a6890c52b.jpg" alt="Open To All Branches">
-  </div>
-
+  
   <!-- ═══ OVERVIEW ═══ -->
-  <div class="section-teal-header" style="margin-top:0;">Overview</div>
-  <section class="pe-section">
-    <div class="pe-content">
-      <div class="overview-box">
-        <p style="color:#006666; font-weight:700; font-size:1.1rem;">ProtoExpo – Showcasing Ideas in Action</p>
-        <p style="font-style:italic; margin-bottom:20px;">Theme: "Smart, Resilient & Inclusive Engineering: Designing Solutions for the Next Generation"</p>
+  <div class="section-teal-header">SkillForge Series Workshop</div>
+  <section class="cc-section">
+    <div class="cc-content">
+      <p>The SkillForge Series embodies practical mind-on sessions crafted to shape your tomorrow. These interactive workshops introduce foundational and cutting-edge engineering skills directly required by modern industry practices.</p>
 
-        <p>The Department of Civil Engineering at Poornima College of Engineering invites students from all branches of engineering to participate in ProtoExpo (project exhibition), a vibrant platform to present and demonstrate <strong>innovative projects, working prototypes, and creative solutions to real-world problems.</strong></p>
-
-        <p>ProtoExpo is more than just an exhibition – it is a celebration of ingenuity, problem-solving, and hands-on engineering skills. Whether your project is a cutting-edge research prototype, a product design, or a community-impact solution, this is your chance to showcase your creativity and technical acumen to fellow students, faculty, industry experts, and potential collaborators.</p>
-
-        <h3 class="teal-heading">Who Can Participate?</h3>
-        <p>Students from all domains of engineering – <strong>Civil, Mechanical, Electrical, Electronics, Computer Science, IT, AI, Robotics, and more</strong> – are welcome to submit their projects. Interdisciplinary projects and collaborative teams are strongly encouraged.</p>
-
-        <h3 class="teal-heading">Project Domains May Include:</h3>
-        <ul class="pe-list">
-          <li>1. Sustainable &amp; Green Systems</li>
-          <li>2. Smart &amp; Intelligent Infrastructure</li>
-          <li>3. Water Resources</li>
-          <li>4. AI/IoT &amp; Data Analytics</li>
-          <li>5. Climate-Resilient Infrastructure</li>
-          <li>6. Construction Tech &amp; Automation</li>
-          <li>7. Smart Transportation</li>
-          <li>8. Circular Economy</li>
-          <li>9. Interdisciplinary Innovations</li>
-          <li>10. Student Start-ups</li>
-        </ul>
-
-        <h3 class="teal-heading">Why Participate?</h3>
-        <ul class="pe-list">
-          <li>Showcase your skills and innovative thinking.</li>
-          <li>Gain valuable feedback from industry professionals and academic experts.</li>
-          <li>Network with like-minded innovators and potential mentors.</li>
-          <li>Inspire and be inspired by creative engineering solutions.</li>
-        </ul>
-
-        <h3 class="teal-heading">Submission Guidelines:</h3>
-        <ul class="pe-list">
-          <li>Projects should be original and may be in the form of working prototypes, models, or simulation-based designs.</li>
-          <li>Participants must submit a brief abstract outlining their project’s title, problem statement, objective, methodology, and expected outcome.</li>
-          <li>Both individual and team entries are allowed (teams of up to 2 members).</li>
-        </ul>
-
-        <p>Join us at ProtoExpo 2025 and be part of a platform where ideas meet action and innovation drives change.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ GUIDELINES ═══ -->
-  <div class="section-teal-header" style="margin-top:0;">Guidelines</div>
-  <section class="pe-section">
-    <div class="pe-content">
+      <h3 class="archinova-heading" style="color:var(--teal); font-size:1.4rem; border-bottom:1px solid #ddd; padding-bottom:8px; margin-top:40px;">Workshop 1: Non-Destructive Testing (NDT) of Structures</h3>
+      <p>This hands-on workshop dives into the methodologies and equipment used to evaluate the properties of a material, component, or system without causing damage. Essential for maintaining the integrity and safety of structures, NDT techniques taught will bridge the gap between academic theory and field applications.</p>
       
-      <h3 class="teal-heading">Team Composition:</h3>
-      <ul class="pe-list">
-        <li>1 or 2 members per team.</li>
-        <li>Interdisciplinary teams are allowed and encouraged.</li>
-      </ul>
-
-      <h3 class="teal-heading">Project Categories:</h3>
-      <p>The exhibition will be held in two categories:</p>
-      <ul class="pe-list">
-        <li>Hardware</li>
-        <li>Software</li>
-      </ul>
-
-      <h3 class="teal-heading">Project Type:</h3>
-      <ul class="pe-list">
-        <li>Syllabus or non-syllabus-based.</li>
-        <li>Can be hardware, software.</li>
-        <li>Should be original or significantly improved upon an existing concept.</li>
-      </ul>
-
-      <h3 class="teal-heading">Registration process:</h3>
-      <ul class="pe-list">
-        <li>Participants must first pay the registration fee.</li>
-        <li>After payment, participants must complete the ICI TechBloom 26 Registration Form to confirm their participation.</li>
-      </ul>
-
-      <h3 class="teal-heading">Time Allotment:</h3>
-      <ul class="pe-list">
-        <li>Presentation Time: 6 minutes (4 min presentation + 2 min Q&amp;A).</li>
-        <li>Teams must remain available at their exhibit during exhibition hours.</li>
-      </ul>
-
-      <h3 class="teal-heading">Setup Time:</h3>
-      <p style="margin-left: 20px;">1 hour before the exhibition starts.</p>
-
-      <h3 class="teal-heading">Power &amp; Display:</h3>
-      <ul class="pe-list">
-        <li>Each team will be provided with a table, chairs, and a power supply.</li>
-        <li>Students must bring their extension cords, display materials, and models.</li>
-      </ul>
-
-      <h3 class="teal-heading">Poster/Chart Requirement:</h3>
-      <p style="margin-left: 20px;">Each team should display a project chart including:</p>
-      <ul style="list-style: none; padding-left: 40px; margin-bottom: 24px;">
-        <li>▪ Title</li>
-        <li>▪ Abstract</li>
-        <li>▪ Team members</li>
-        <li>▪ Key features and application</li>
-      </ul>
-
-    </div>
-  </section>
-
-  <!-- ═══ EVALUATION AND DISQUALIFICATION ═══ -->
-  <div class="section-teal-header" style="margin-top:0;">Evaluation and Disqualification Criteria</div>
-  <section class="pe-section">
-    <div class="pe-content">
+      <h3 class="archinova-heading" style="color:var(--teal); font-size:1.4rem; border-bottom:1px solid #ddd; padding-bottom:8px; margin-top:40px;">Workshop 2: Smart Construction using BIM</h3>
+      <p>Building Information Modeling (BIM) is revolutionizing the construction industry globally. This workshop covers the transformation of digital representations into physical and functional structures. Learn how BIM empowers architects, engineers, and construction professionals to plan, design, and manage infrastructure seamlessly.</p>
       
-      <h3 class="teal-heading">Judging Criteria (Common for All Themes)</h3>
-      <table class="criteria-table">
-        <thead>
-          <tr>
-            <th>Component</th>
-            <th>Marks</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Innovation &amp; Creativity</td>
-            <td>20 Marks</td>
-          </tr>
-          <tr>
-            <td>Practical Application</td>
-            <td>20 Marks</td>
-          </tr>
-          <tr>
-            <td>Technical Complexity</td>
-            <td>20 Marks</td>
-          </tr>
-          <tr>
-            <td>Presentation and Communication</td>
-            <td>20 Marks</td>
-          </tr>
-          <tr>
-            <td>Overall Impact and Execution</td>
-            <td>20 Marks</td>
-          </tr>
-          <tr>
-            <td>TOTAL</td>
-            <td>100 Marks</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <ul class="pe-list">
-        <li><strong>Bonus Points (5%) can be awarded for sustainability, interdisciplinary work, or social relevance.</strong></li>
+      <p style="margin-top:40px; font-weight:600; font-size:1.1rem; color:#1e4d3f;">Eligibility:</p>
+      <ul class="cc-list">
+        <li>Open to all active engineering students.</li>
+        <li>No registration fee applied for either workshop.</li>
       </ul>
-
-      <h3 class="teal-heading">Disqualification Criteria</h3>
-      <p>A team will be disqualified if:</p>
-      <ul class="pe-list">
-        <li>Plagiarism or copying from other teams is detected.</li>
-        <li>Internet usage during the event (unless permitted for IS codes access).</li>
-        <li>Team members are found communicating with outsiders/other teams.</li>
-        <li>The team violates academic ethics or event rules.</li>
-      </ul>
-
-      <p style="margin-top:20px; font-weight:600;">Ø Judges’ decision will be final and binding.</p>
-
     </div>
   </section>
 
-  <!-- ═══ REGISTER BANNER ═══ -->
-  <div class="register-bottom-bar">
-    <a href="Events.html">Register Now</a>
+  <!-- ═══ ACTION BUTTONS ═══ -->
+  <div class="action-btn-container">
+    <div class="dashed-divider"></div>
+    
+    <a href="Events.html" class="archinova-btn">Register Now</a>
+    <div class="dashed-divider"></div>
   </div>
 
   <!-- ═══ FOOTER ═══ -->
@@ -804,7 +646,6 @@
     <a href="https://drive.google.com/file/d/1nQI0rn6oeLYR4KLZJ5Abf_XdiEsnDbUL/view" class="brochure-btn">ICI TechBloom
       26 Brochure</a>
   </div>
-
 
   <script>
     const hamburger = document.getElementById('hamburger');
